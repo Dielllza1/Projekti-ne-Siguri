@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
@@ -12,26 +12,26 @@ namespace MyServer
     { 
         static void Main(string[] args)
         {
-
             Console.Title = "Server";
 
             IPAddress myIp = IPAddress.Parse("127.0.0.1");
             Int32 port = 9000;
             Server server = new Server(myIp, port);
 
-            Console.WriteLine("Starting...");
             server.startListening();
+            if (server.serverStatus == false)
+            {
+                Environment.Exit(-1);
+            }
+
+            Console.WriteLine("Starting...");
             Console.WriteLine("-------------------");
             Console.WriteLine("Server has started.");
 
-            //Thread.Sleep(1000);
-            //Console.Clear();
             Console.WriteLine("Waiting for connection.");
             server.acceptClient();
-            //Console.Clear();
             Console.WriteLine("Client connected.");
             Console.WriteLine("------------------");
-
 
             string messageFromClient = "";
             string enkriptimi = "";
@@ -46,10 +46,11 @@ namespace MyServer
                 while (server.serverStatus)
                 {
                     //As as the client connects
-                    if (server.sockeForclient.Connected)
+                    if (server.socketForclient.Connected)
                     {
                         //expecting a message from the client
                         messageFromClient = server.streamReader.ReadLine();
+
                         enkriptimi = Encrypt(messageFromClient);
                         dekriptimi = Decrypt(enkriptimi);
                         Console.WriteLine("Teksti i enkriptuar nga klienti: " + enkriptimi);
@@ -74,11 +75,13 @@ namespace MyServer
                         server.streamWriter.Flush();
                     }
                 }
+
                 server.disconect();
             }
             catch (Exception e)
             {
-                Console.Write(e.Message);
+                Console.WriteLine("Problem reading from client.");
+                Console.WriteLine(e.Message + "\n" + e.StackTrace);
             }
             
         }
@@ -101,7 +104,7 @@ namespace MyServer
             writer.Flush();
             cryptoStream.FlushFinalBlock();
             writer.Flush();
-            return Convert.ToBase64String(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
+            return Convert.ToBase64String(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);//ToHexString
         }
 
         public static string Decrypt(string cryptedString)
@@ -113,7 +116,7 @@ namespace MyServer
             }
             DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
             MemoryStream memoryStream = new MemoryStream
-                    (Convert.FromBase64String(cryptedString));
+                    (Convert.FromBase64String(cryptedString));  //FromHexString
             CryptoStream cryptoStream = new CryptoStream(memoryStream,
                 cryptoProvider.CreateDecryptor(bytes, bytes), CryptoStreamMode.Read);
             StreamReader reader = new StreamReader(cryptoStream);
