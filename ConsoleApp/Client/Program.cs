@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Net;
@@ -46,25 +46,22 @@ namespace MyClient
                         client.streamWriter.WriteLine(messageToServer);
                         client.streamWriter.Flush();
                         messageFromServer = client.streamReader.ReadLine();
+
                         enkriptimi = Encrypt(messageFromServer);
                         dekriptimi = Decrypt(enkriptimi);
                         Console.WriteLine("Teksti i enkriptuar nga serveri: " + enkriptimi);
                         Console.WriteLine("Teksti i dekriptuar nga serveri: " + dekriptimi);
                         Console.WriteLine("--------------------------------");
-                        //Console.WriteLine("Server : " + messageFromServer);
-                        
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                Console.WriteLine("problem reading from server");
+                Console.WriteLine("Problem reading from server.");
+                Console.WriteLine(ex.Message + "\n" + ex.StackTrace);
             }
 
             client.disconect();
-            
-            
-
         }
 
         static byte[] bytes = ASCIIEncoding.ASCII.GetBytes("ZeroCool");
