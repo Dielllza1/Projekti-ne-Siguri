@@ -1,23 +1,20 @@
-﻿using System;
-using System.Net;
-using System.Net.Sockets;
+using System;
+using System.Net; 
+using System.Net.Sockets; 
 using System.IO;
 namespace MyServer
 {
     public class Server
     {
+        public IPAddress myIp; 
+        public int port; 
+        public bool serverStatus; 
+        private TcpListener tcpListener;
+        public Socket socketForclient;
 
-        public IPAddress myIp { get; private set; }
-        public int port { get; private set; }
-        public bool serverStatus { get; set; }
-        private TcpListener tcpListener { get; set; }
-        public Socket sockeForclient { get; private set; }
-
-        public NetworkStream networkStream { get; set; }
-        public StreamReader streamReader { get; set; }
-        public StreamWriter streamWriter { get; set; }
-
-
+        public NetworkStream networkStream;
+        public StreamReader streamReader;
+        public StreamWriter streamWriter; 
 
         public Server(IPAddress myIp, int port)
         {
@@ -33,9 +30,12 @@ namespace MyServer
                 tcpListener = new TcpListener(myIp, port);
                 tcpListener.Start();
             }
-            catch
+            catch(Exception ex)
             {
-                Console.Write("Couldn't start listening");
+                Console.WriteLine("Server couldn't start listening.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                serverStatus = false;
             }
         }
 
@@ -43,11 +43,12 @@ namespace MyServer
         {
                 try
                 {
-                    sockeForclient = tcpListener.AcceptSocket();
+                    socketForclient = tcpListener.AcceptSocket();
                 }
-                catch
+                catch(Exception ex)
                 {
-                    Console.WriteLine("Couldn't accept client");
+                    Console.WriteLine("Server couldn't accept client.");
+                    Console.WriteLine(ex.Message + "\n" + ex.StackTrace);
                 }
         }
 
@@ -55,7 +56,7 @@ namespace MyServer
         //allows server to exchange data with the client
         public void clientData()
         {
-            networkStream = new NetworkStream(sockeForclient);
+            networkStream = new NetworkStream(socketForclient);
             streamReader = new StreamReader(networkStream);
             streamWriter = new StreamWriter(networkStream);
         }
@@ -66,7 +67,7 @@ namespace MyServer
             networkStream.Close();
             streamReader.Close();
             streamWriter.Close();
-            sockeForclient.Close();
+            socketForclient.Close();
         }
 
     }
