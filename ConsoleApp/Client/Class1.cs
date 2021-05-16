@@ -8,14 +8,14 @@ namespace MyClient
 {
     public class Client
     {
-        public string myIp; //{ get; private set; }
-        public int port;// { get; private set; }
+        public string myIp; 
+        public int port;
         private TcpClient socketForServer;
         public bool clientStatus = true;
 
-        public NetworkStream networkStream;// { get; set; }
-        public StreamReader streamReader;// { get; set; }
-        public StreamWriter streamWriter;// { get; set; }
+        public NetworkStream networkStream;
+        public StreamReader streamReader;
+        public StreamWriter streamWriter;
 
         public Client(string myIp, int port)
         {
