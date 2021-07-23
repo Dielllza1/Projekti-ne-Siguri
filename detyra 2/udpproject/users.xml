@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user id="1">
+    <emri>Ela</emri>
+    <mbiemri>Berisha</mbiemri>
+    <username>Ela12</username>
+    <password>RTn0tbLwjYweJQKNMcHwKVK0QCU=</password>
+    <salt>836661</salt>
+    <lloji_fatures>ushqimore</lloji_fatures>
+    <viti>2020</viti>
+    <muaji>Prill</muaji>
+    <vlera_euro>45.00</vlera_euro>
+    <dita>E hene</dita>
+  </user>
+  <user id="2">
+    <emri>Njomza</emri>
+    <mbiemri>Salihi</mbiemri>
+    <username>omza</username>
+    <password>SNem+fQJ6ZT3cBYyFicqLDQE4Cs=</password>
+    <salt>113538</salt>
+    <lloji_fatures>bankare</lloji_fatures>
+    <viti>2021</viti>
+    <muaji>Nentor</muaji>
+    <vlera_euro>23.00</vlera_euro>
+    <dita>E premte</dita>
+  </user>
+  <user id="3">
+    <emri>Blerina</emri>
+    <mbiemri>Berisha</mbiemri>
+    <username>Bler</username>
+    <password>FXwx6TeA5EaV1z2uRiquNAmCfwk=</password>
+    <salt>882772</salt>
+    <lloji_fatures>shkollore</lloji_fatures>
+    <viti>2021</viti>
+    <muaji>Maj</muaji>
+    <vlera_euro>25.00</vlera_euro>
+    <dita>E enjte</dita>
+  </user>
+</users>
