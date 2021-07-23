@@ -1,0 +1,16 @@
+C:\Users\Admin\Desktop\udpproject\udpproject1\bin\Debug\net5.0\udpproject1.exe
+C:\Users\Admin\Desktop\udpproject\udpproject1\bin\Debug\net5.0\udpproject1.deps.json
+C:\Users\Admin\Desktop\udpproject\udpproject1\bin\Debug\net5.0\udpproject1.runtimeconfig.json
+C:\Users\Admin\Desktop\udpproject\udpproject1\bin\Debug\net5.0\udpproject1.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\udpproject\udpproject1\bin\Debug\net5.0\udpproject1.dll
+C:\Users\Admin\Desktop\udpproject\udpproject1\bin\Debug\net5.0\ref\udpproject1.dll
+C:\Users\Admin\Desktop\udpproject\udpproject1\bin\Debug\net5.0\udpproject1.pdb
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.AssemblyInfo.cs
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.dll
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\ref\udpproject1.dll
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.pdb
+C:\Users\Admin\Desktop\udpproject\udpproject1\obj\Debug\net5.0\udpproject1.genruntimeconfig.cache
